@@ -12,12 +12,13 @@ export default function ProductsPage({ navigation, route }) {
     const [websites, setWebsites] = useState([]);
     const [sites, setsites] = useState([]);
     const [selectedWebsites, setselectedWebsites] = useState([]);
-    const [sort, setSort] = useState(0);
+    
     const [sortZeroclicked, setSortZeroclicked] = useState(false);
     const [sortOneclicked, setSortOneclicked] = useState(false);
     let [pageNo, setPageNo] = useState(1);
     const [productsArray, setproductsArray] = useState([]);
-    const [checked, setChecked] = React.useState('first');
+    // const [checked, setChecked] = React.useState('0');
+    const [sort, setSort] = useState(0);
 
     async function getWebsitesList() {
         try {
@@ -88,25 +89,25 @@ export default function ProductsPage({ navigation, route }) {
                                     <View style={{ flexDirection: "row", textAlign: "center", justifyContent:"center", alignContent:"center" }}>
                                         <Text style={{ textAlign: "center" }}>New</Text>
                                         <RadioButton
-                                            value="first"
-                                            status={checked === 'first' ? 'checked' : 'unchecked'}
-                                            onPress={() => setChecked('first')}
+                                            value="0"
+                                            status={sort === '0' ? 'checked' : 'unchecked'}
+                                            onPress={() => setSort('0')}
                                         />
                                     </View>
                                     <View style={{ flexDirection: "row" }}>
                                         <Text style={{ textAlign: "center" }}>Low To High</Text>
                                         <RadioButton
-                                            value="second"
-                                            status={checked === 'second' ? 'checked' : 'unchecked'}
-                                            onPress={() => setChecked('second')}
+                                            value="1"
+                                            status={sort === '1' ? 'checked' : 'unchecked'}
+                                            onPress={() => setSort('1')}
                                         />
                                     </View>
                                     <View style={{ flexDirection: "row" }}>
                                         <Text>High to Low</Text>
                                         <RadioButton
-                                            value="third"
-                                            status={checked === 'third' ? 'checked' : 'unchecked'}
-                                            onPress={() => setChecked('third')}
+                                            value="-1"
+                                            status={sort === '-1' ? 'checked' : 'unchecked'}
+                                            onPress={() => setSort('-1')}
                                         />
                                     </View>
                                 </View>
